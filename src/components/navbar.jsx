@@ -20,7 +20,7 @@ export default function Navbar() {
             Login
           </NavLink>
         </li>
-        <li>          
+        <li className='navButton'>          
             Logout          
         </li>
       </ul>
