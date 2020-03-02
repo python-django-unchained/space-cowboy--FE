@@ -1,0 +1,15 @@
+.navbar{
+    padding-right: 2rem;
+    display:flex;
+    justify-content: flex-end;
+    list-style-type: none;
+    text-align: right;
+
+    .navButton {
+        padding-left: 2rem;
+        text-decoration: none;
+        color: white;
+    }
+}
+
+
