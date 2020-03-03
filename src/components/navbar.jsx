@@ -11,6 +11,8 @@ export default function Navbar(props) {
   return (
     <div>
       <ul className="navbar">
+      {localStorage.getItem('token') == null && (
+              <>
         <li>
           <NavLink exact to="/" className='navButton'>
             Home
@@ -21,6 +23,10 @@ export default function Navbar(props) {
             Sign Up
           </NavLink>
         </li>
+        </>
+      )}
+      {localStorage.getItem('token') != null && (
+              <>
         <li>
         <NavLink exact to="/map" className='navButton'>
             Map
@@ -29,6 +35,8 @@ export default function Navbar(props) {
         <li style={{cursor: 'pointer'}} onClick={logout} className='navButton'>          
             Logout          
         </li>
+        </>
+        )}
       </ul>
     </div>
   );
