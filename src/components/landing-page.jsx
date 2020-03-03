@@ -12,7 +12,7 @@ const ColorButton = withStyles(theme => ({
     },
 }))(Button);
 
-export default function LandingPage() {
+export default function LandingPage(props) {
     const [username, setUsername] = useState('')
     const [password, setPassword] = useState('')
 
@@ -21,8 +21,13 @@ export default function LandingPage() {
     const handleLogin = e => {
         e.preventDefault()
         axiosWithAuth()
-        .then(res => console.log(res))
-        .catch(err => console.error(err))
+            .post('/api/login/', {username, password})
+            .then(res => {
+            localStorage.setItem('token', res.data.key)
+            console.log(res)
+            props.history.push('/map')
+            })    
+            .catch(err => console.error(err))
     }
 
     return (

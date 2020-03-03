@@ -23,7 +23,7 @@ export default function Signup() {
         axios(authOptions)
         .then(res => {
             console.log(res)
-            // localStorage.setItem("token", res.data.token)
+            localStorage.setItem('token', res.data.key)
         })
         .catch(err => console.error(err))
     }
