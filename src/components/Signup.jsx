@@ -1,18 +1,10 @@
-import {Link} from 'react-router-dom'
-import React, { useState } from 'react';
+import React, { useState } from 'react'
 import { withStyles } from '@material-ui/core';
 import Button from "@material-ui/core/Button";
 import { Form } from 'react-bootstrap';
 import axios from 'axios';
 
-
-const ColorButton = withStyles(theme => ({
-    root: {
-        backgroundColor: 'blue',
-    },
-}))(Button);
-
-export default function LandingPage() {
+export default function Signup() {
     const [username, setUsername] = useState('')
     const [password, setPassword] = useState('')
 
@@ -32,8 +24,14 @@ export default function LandingPage() {
         .catch(err => console.error(err))
     }
 
+    const ColorButton = withStyles(theme => ({
+        root: {
+            backgroundColor: 'blue',
+        },
+    }))(Button);
+
     return (
-        <div className='landing-page'>
+        <div>
             <h1 className='title-box'>
                 SPACE COWBOY
             </h1>
@@ -46,5 +44,5 @@ export default function LandingPage() {
                 <ColorButton type='submit' variant='contained' onClick={(e) => handleLogin(e)}>Login</ColorButton>
             </Form>
         </div>
-    );
+    )
 }
