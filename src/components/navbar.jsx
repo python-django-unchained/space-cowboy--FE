@@ -6,18 +6,18 @@ export default function Navbar() {
     <div>
       <ul className="navbar">
         <li>
-          <NavLink to="/home" className='navButton'>
+          <NavLink exact to="/" className='navButton'>
             Home
           </NavLink>
         </li>
         <li>
-        <NavLink to="/signup" className='navButton'>
+        <NavLink exact to="/signup" className='navButton'>
             Sign Up
           </NavLink>
         </li>
         <li>
-          <NavLink to="/login" className='navButton'>
-            Login
+        <NavLink exact to="/map" className='navButton'>
+            Map
           </NavLink>
         </li>
         <li className='navButton'>          
