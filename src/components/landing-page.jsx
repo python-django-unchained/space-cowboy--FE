@@ -1,12 +1,9 @@
-<<<<<<< HEAD
-=======
 import {Link} from 'react-router-dom'
->>>>>>> db342339bd6784a2d1eb90d213caa373dfecc609
 import React, { useState } from 'react';
 import { withStyles } from '@material-ui/core';
 import Button from "@material-ui/core/Button";
 import { Form } from 'react-bootstrap';
-import axios from 'axios';
+import axiosWithAuth from '../utils/axiosWithAuth';
 
 
 const ColorButton = withStyles(theme => ({
@@ -19,18 +16,11 @@ export default function LandingPage() {
     const [username, setUsername] = useState('')
     const [password, setPassword] = useState('')
 
-    const authOptions = {
-        method: 'POST',
-        url: 'https://cors-anywhere.herokuapp.com/https://lambda-mud-test.herokuapp.com/api/login',
-        data: {username: username, password: password},
-        headers: {
-            "Content-Type": "application/json"
-        }
-    }
+    
 
     const handleLogin = e => {
         e.preventDefault()
-        axios(authOptions)
+        axiosWithAuth()
         .then(res => console.log(res))
         .catch(err => console.error(err))
     }
