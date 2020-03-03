@@ -6,6 +6,7 @@ import Navbar from './components/navbar';
 import LandingPage from './components/landing-page';
 import Signup from './components/Signup';
 import Map from './components/Map';
+import PrivateRoute from './components/PrivateRoute'
 
 // Styles
 import './styles/App.scss';
@@ -17,7 +18,7 @@ function App() {
         <Route path='/' component={ Navbar } />
         <Route exact path='/' component={ LandingPage } />
         <Route exact path='/signup' component={ Signup } />
-        <Route exact path='/map' component={Map} />
+        <PrivateRoute exact path='/map' component={Map} />
       </header>
     </div>
   );
