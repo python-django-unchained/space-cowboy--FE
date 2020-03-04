@@ -16,6 +16,7 @@ export default function Map(props) {
     
     return (
         <div className='map'>
+            <h3 className='map-title'> Select a World to Explore</h3>
             <img onClick={() => props.history.push('/red-giant-room')} style={{cursor: 'pointer'}} className='red-giant' src={redGiant} alt='' />
             <img onClick={() => props.history.push('/ice-giant-room')} style={{cursor: 'pointer'}} className='ice-giant' src={iceGiant} alt=''/>
             <img onClick={() => props.history.push('/gas-giant-room')} style={{cursor: 'pointer'}} className='gas-giant' src={gasGiant} alt='' />
