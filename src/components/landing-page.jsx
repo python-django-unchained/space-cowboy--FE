@@ -1,9 +1,8 @@
-import {Link} from 'react-router-dom'
 import React, { useState } from 'react';
 import { withStyles } from '@material-ui/core';
 import Button from "@material-ui/core/Button";
 import { Form } from 'react-bootstrap';
-import axios from 'axios';
+import axiosWithAuth from '../utils/axiosWithAuth';
 
 
 const ColorButton = withStyles(theme => ({
@@ -12,24 +11,22 @@ const ColorButton = withStyles(theme => ({
     },
 }))(Button);
 
-export default function LandingPage() {
+export default function LandingPage(props) {
     const [username, setUsername] = useState('')
     const [password, setPassword] = useState('')
 
-    const authOptions = {
-        method: 'POST',
-        url: 'https://cors-anywhere.herokuapp.com/https://lambda-mud-test.herokuapp.com/api/login',
-        data: {username: username, password: password},
-        headers: {
-            "Content-Type": "application/json"
-        }
-    }
+    
 
     const handleLogin = e => {
         e.preventDefault()
-        axios(authOptions)
-        .then(res => console.log(res))
-        .catch(err => console.error(err))
+        axiosWithAuth()
+            .post('/api/login/', {username, password})
+            .then(res => {
+            localStorage.setItem('token', res.data.key)
+            console.log(res)
+            props.history.push('/map')
+            })    
+            .catch(err => console.error(err))
     }
 
     return (

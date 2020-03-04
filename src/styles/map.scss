@@ -1,7 +1,68 @@
 .map{
-    background-image: url('../images/planets1.jpg');
+    background-image: url('../images/stars.jpg');
     background-position: center;
-    background-size: cover;
+    background-size: contain;
+    object-fit: cover;
+    background-repeat: no-repeat;
+    height: 90vh;
+    // width: 100vw;
+    overflow: hidden;
+
+    .red-giant{
+        position: absolute;
+        height: 28vh;
+        width: 28vh;
+        top: 35vh;
+        right: 17vw;
+    }
+    .gas-giant{
+        position: absolute;
+        height: 30vh;
+        width: 30vh;
+        top: 8vh;
+        right: 65vw;
+    }
+    .ice-giant{
+        position: absolute;
+        height: 25vh;
+        width: 25vh;
+        top: 40vh;
+        right: 80vw;
+    }
+    .earth{
+        position: absolute;
+        height: 15vh;
+        width: 15vh;
+        top: 75vh;
+        right: 70vw;
+    }
+    .earth2{
+        position: absolute;
+        height: 18vh;
+        width: 18vh;
+        top: 68vh;
+        right: 52vw;
+    }
+    .brown-exo{
+        position: absolute;
+        height: 19vh;
+        width: 19vh;
+        top: 60vh;
+        right: 35vw;
+    }
+    .sun{
+        position: absolute;
+        height: 28vh;
+        width: 28vh;
+        top: 10vh;
+        right: 3vw;
+    }
+}
+
+.room-background{
+    background-image: url('../images/stars.jpg');
+    background-position: center;
+    background-size: contain;
     object-fit: cover;
     background-repeat: no-repeat;
     height: 90vh;
