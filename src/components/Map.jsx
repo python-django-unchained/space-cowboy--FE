@@ -22,13 +22,13 @@ export default function Map() {
 
     return (
         <div className='map'>
-            <img className='red-giant' src={redGiant} />
-            <img className='ice-giant' src={iceGiant} />
-            <img className='gas-giant' src={gasGiant} />
-            <img className='earth' src={earth} />
-            <img className='earth2' src={earth2} />
-            <img className='brown-exo' src={brownExo} />
-            <img className='sun' src={sun} />
+            <img style={{cursor: 'pointer'}} className='red-giant' src={redGiant} />
+            <img style={{cursor: 'pointer'}} className='ice-giant' src={iceGiant} />
+            <img style={{cursor: 'pointer'}} className='gas-giant' src={gasGiant} />
+            <img style={{cursor: 'pointer'}} className='earth' src={earth} />
+            <img style={{cursor: 'pointer'}} className='earth2' src={earth2} />
+            <img style={{cursor: 'pointer'}} className='brown-exo' src={brownExo} />
+            <img style={{cursor: 'pointer'}} className='sun' src={sun} />
         </div>
     )
 }
