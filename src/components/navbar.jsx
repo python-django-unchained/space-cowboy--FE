@@ -2,7 +2,6 @@ import React from 'react'
 import { NavLink } from "react-router-dom";
 
 export default function Navbar(props) {
-  const token = localStorage.getItem('token')
   const logout = () => {
     localStorage.removeItem('token')
     props.history.push('/')

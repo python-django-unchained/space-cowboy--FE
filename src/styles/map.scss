@@ -58,3 +58,14 @@
         right: 5vw;
     }
 }
+
+.room-background{
+    background-image: url('../images/stars.jpg');
+    background-position: center;
+    background-size: contain;
+    object-fit: cover;
+    background-repeat: no-repeat;
+    height: 90vh;
+    // width: 100vw;
+    overflow: hidden;
+}
