@@ -2,7 +2,7 @@
     display: flex;
     justify-content: space-between;
     padding-top: 6rem;
-    padding-right: 10rem;
+    // padding-left: 10rem;
     height:100%;
     
     
@@ -12,9 +12,10 @@
         text-align:center;
         border: 5px outset white;
         background-image: url(../images/Brushed-Metal-Background.jpg);
-        width: 30%;
-        height: 65%;
+        width: 25rem;
+        height: 75%;
         color:white;
+        
 
         .info-text{
             padding-top:3rem;

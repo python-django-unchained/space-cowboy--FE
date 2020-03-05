@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import axiosWithAuth from '../utils/axiosWithAuth'
 import axios from 'axios'
 import InfoBox from '../components/Info-box'
+import Game from '../components/Game/Game'
 
 export default function GasGiantRoom() {
 
@@ -16,7 +17,7 @@ export default function GasGiantRoom() {
 
     useEffect(() => {
         axiosWithAuth()
-            .get(`/api/adv/rooms?planet=Earth`)
+            .get(`/api/adv/rooms?planet=Mordor`)
             .then(res => {                
                 setPlanet(res.data)         
             })
@@ -106,6 +107,7 @@ export default function GasGiantRoom() {
                 <button onClick={init}>Test Init</button>
                 <button onClick={CowboyInit}>Test CowboyInit</button>
             </div> */}
+            <Game/>
             
             <div className='info-container'>
                 <InfoBox planet={planet} />
