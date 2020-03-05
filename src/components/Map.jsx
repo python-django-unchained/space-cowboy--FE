@@ -17,13 +17,13 @@ export default function Map(props) {
     return (
         <div className='map'>
             <h3 className='map-title'> Select a World to Explore</h3>
-            <img onClick={() => props.history.push('/red-giant-room')} style={{cursor: 'pointer'}} className='red-giant' src={redGiant} alt='' />
-            <img onClick={() => props.history.push('/ice-giant-room')} style={{cursor: 'pointer'}} className='ice-giant' src={iceGiant} alt=''/>
-            <img onClick={() => props.history.push('/gas-giant-room')} style={{cursor: 'pointer'}} className='gas-giant' src={gasGiant} alt='' />
-            <img onClick={() => props.history.push('/earth-room')} style={{cursor: 'pointer'}} className='earth' src={earth} alt='' />
-            <img onClick={() => props.history.push('/earth2-room')} style={{cursor: 'pointer'}} className='earth2' src={earth2} alt='' />
-            <img onClick={() => props.history.push('/brown-exo-room')} style={{cursor: 'pointer'}} className='brown-exo' src={brownExo} alt='' />
-            <img onClick={() => props.history.push('/sun-room')} style={{cursor: 'pointer'}} className='sun' src={sun} alt='' />
+            <img onClick={() => props.history.push('/red-giant-room')} style={{cursor: 'pointer'}} className='red-giant' src={redGiant} alt='Red Giant' />
+            <img onClick={() => props.history.push('/ice-giant-room')} style={{cursor: 'pointer'}} className='ice-giant' src={iceGiant} alt='Ice Giant'/>
+            <img onClick={() => props.history.push('/gas-giant-room')} style={{cursor: 'pointer'}} className='gas-giant' src={gasGiant} alt='Gas Giant' />
+            <img onClick={() => props.history.push('/earth-room')} style={{cursor: 'pointer'}} className='earth' src={earth} alt='Earth' />
+            <img onClick={() => props.history.push('/earth2-room')} style={{cursor: 'pointer'}} className='earth2' src={earth2} alt='Earth 2' />
+            <img onClick={() => props.history.push('/brown-exo-room')} style={{cursor: 'pointer'}} className='brown-exo' src={brownExo} alt='Brown Exo' />
+            <img onClick={() => props.history.push('/sun-room')} style={{cursor: 'pointer'}} className='sun' src={sun} alt='Sun' />
         </div>
     )
 }

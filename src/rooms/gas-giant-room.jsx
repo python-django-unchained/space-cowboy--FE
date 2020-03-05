@@ -22,7 +22,7 @@ export default function GasGiantRoom() {
         tsize: 32,
         tiles: [],
         getTile: function(col, row) {
-            return this.tiles[row * map.cols + col]
+            return this.tiles[row * map.cols + col].tile_num
         }
     })
 
@@ -33,7 +33,7 @@ export default function GasGiantRoom() {
             .get(`/api/adv/rooms?planet=Mordor`)
             .then(res => {                
                 setPlanet(res.data)
-                setCurrentRoom(res.data[0])         
+                setCurrentRoom(res.data[76])         
             })
             .catch(err => console.log(err.response))
     }, [])
@@ -42,9 +42,7 @@ export default function GasGiantRoom() {
     useEffect(() => {
         axiosWithAuth().get('/api/adv/rooms?planet=Mordor')
         .then(res => {
-                let newTiles = res.data.map(obj => {
-                    return obj.tile_num
-                })
+                let newTiles = res.data                
                 setMap({
                     ...map,
                     tiles: newTiles
