@@ -6,7 +6,7 @@ import Navbar from './components/navbar';
 import LandingPage from './components/landing-page';
 import Signup from './components/Signup';
 import Map from './components/Map';
-import Game from './components/Game/Game'
+import GameState from './components/Game/GameState'
 import PrivateRoute from './components/PrivateRoute'
 // Rooms
 import IceGiantRoom from './rooms/ice-giant-room'
@@ -29,7 +29,7 @@ function App() {
         <Route path='/' component={ Navbar } />
         <Route exact path='/' component={ LandingPage } />
         <Route exact path='/signup' component={ Signup } />
-        <Route exact path='/game' component={Game} />
+        <Route exact path='/game' component={GameState} />
         <PrivateRoute exact path='/map' component={Map} />
         <Route path='/ice-giant-room' component={IceGiantRoom} />
         <Route path='/red-giant-room' component={RedGiantRoom} />
