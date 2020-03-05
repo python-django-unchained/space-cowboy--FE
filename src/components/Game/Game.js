@@ -101,8 +101,8 @@ const drawImage = (ctx, img, planet=null) => {
                 img, // image
                 // tileObj.hot.floor1X, // source x
                 // tileObj.hot.floor1Y, // source y
-                32,
-                0,
+                tileObj.normal.wallX,
+                tileObj.normal.wallY,
                 map.tsize, // source width
                 map.tsize, // source height
                 c * map.tsize, // target x
@@ -115,8 +115,8 @@ const drawImage = (ctx, img, planet=null) => {
             else if (tile === 1) {
                 ctx.drawImage(
                 img, // image
-                32, // source x
-                192, // source y
+                tileObj.normal.floor1X, // source x
+                tileObj.normal.floor1Y, // source y
                 map.tsize, // source width
                 map.tsize, // source height
                 c * map.tsize, // target x
@@ -126,11 +126,11 @@ const drawImage = (ctx, img, planet=null) => {
                 );
             }
             // 2nd floor texture - 2nd most common tile
-            else if (tile === 3) {
+            else if (tile === 2) {
                 ctx.drawImage(
                     img, // image
-                    192, // source x
-                    160, // source y
+                    tileObj.normal.floor2X, // source x
+                    tileObj.normal.floor2Y, // source y
                     map.tsize, // source width
                     map.tsize, // source height
                     c * map.tsize, // target x
@@ -143,8 +143,8 @@ const drawImage = (ctx, img, planet=null) => {
             else if (tile === 3) {
                 ctx.drawImage(
                     img, // image
-                    192, // source x
-                    160, // source y
+                    tileObj.normal.floor3X, // source x
+                    tileObj.normal.floor3Y, // source y
                     map.tsize, // source width
                     map.tsize, // source height
                     c * map.tsize, // target x
