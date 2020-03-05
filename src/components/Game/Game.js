@@ -167,7 +167,7 @@ export default function Game(props) {
     })
 
     return (
-        <div style={{ position: 'relative', width: 1000, zindex: 2  }}>
+        <div style={{ position: 'relative', width: 1000 }}>
             <img ref={cowboyRef} src={require('../../images/sprite_00.png')} style={{ position: 'absolute', width: '32px', height: '32px', top: '64px', left: '64px' }}/>
             <canvas ref={canvasRef} />
             <img src={tilemap} ref={tilemapRef} style={{ display: 'none' }}/>
