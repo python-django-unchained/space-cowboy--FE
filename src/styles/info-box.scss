@@ -3,19 +3,27 @@
     justify-content: space-between;
     padding-top: 6rem;
     padding-right: 10rem;
+    height:100%;
     
     
     .info{
+        
         padding: 2rem;
         text-align:center;
-        border: 5px inset white;
+        border: 5px outset white;
         background-image: url(../images/Brushed-Metal-Background.jpg);
         width: 30%;
+        height: 65%;
         color:white;
 
         .info-text{
+            padding-top:3rem;
             padding:2rem;
             border-bottom: 2px outset white;
+            
+        }
+        .description{
+            padding-top:5rem;
         }
     }
 }

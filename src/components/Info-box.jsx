@@ -23,7 +23,7 @@ export default function InfoBox(props) {
             <div className='info'>
                 <h3 className='info-text'>ICY Planet</h3>
                 <h4 className='info-text'>The Frozen Bluffs</h4>
-                <h4 className='info-text'>You stand in a flat region dotted with various dark rocks.  You can see a bog in the distance.  The temperature is cool and the sky is clear.</h4>
+                <h4 className='info-text description'>You stand in a flat region dotted with various dark rocks.  You can see a bog in the distance.  The temperature is cool and the sky is clear.</h4>
             </div>
 
         </div>
