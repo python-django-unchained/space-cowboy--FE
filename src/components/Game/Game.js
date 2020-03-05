@@ -56,18 +56,19 @@ const tileObj = {
     }
 }
 
-
 export default function Game(props) {
     const canvasRef = useRef(null)
     const tilemapRef = useRef(null)
     const cowboyRef = useRef(null)
+    const img = new Image()
+    img.src = './floortileset.png'
     
     useEffect(() => {
         const ctx = canvasRef.current.getContext('2d')
         canvasRef.current.width = 900
         canvasRef.current.height = 900
         tilemapRef.current.onload = () => {
-            drawImage(ctx, props.img)
+            drawImage(ctx, img)
         }
     }, [])
     

@@ -6,10 +6,8 @@ export default function axiosWithAuth() {
     return axios.create({
         baseURL: 'https://space-cowboyz.herokuapp.com',
         headers: {
-            "Authorization": `Token, ${token}`,
-            "content-type": "application/json",
-            
-            
+            "Authorization": `Token ${token}`,
+            "Content-Type": "application/json",      
         }
     })
 }

@@ -4,9 +4,15 @@
     background-size: contain;
     object-fit: cover;
     background-repeat: no-repeat;
-    height: 90vh;
+    height: 100vh;
     // width: 100vw;
     overflow: hidden;
+
+    h3{
+        color:white;
+        text-align: center;
+        padding-left: 7rem;
+    }
 
     .red-giant{
         position: absolute;
@@ -60,12 +66,13 @@
 }
 
 .room-background{
+    position: absolute;
     background-image: url('../images/stars.jpg');
     background-position: center;
     background-size: contain;
-    object-fit: cover;
+    object-fit: contain;
     background-repeat: no-repeat;
-    height: 90vh;
+    height: 94vh;
     // width: 100vw;
     overflow: hidden;
 }

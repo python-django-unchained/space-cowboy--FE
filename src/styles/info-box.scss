@@ -1,0 +1,30 @@
+.info-box{
+    display: flex;
+    justify-content: space-between;
+    padding-top: 6rem;
+    padding-right: 15rem;
+    height:100%;
+    
+    
+    .info{
+        
+        padding: 2rem;
+        text-align:center;
+        border: 5px outset white;
+        background-image: url(../images/Brushed-Metal-Background.jpg);
+        width: 25rem;
+        height: 75%;
+        color:white;
+        
+
+        .info-text{
+            padding-top:3rem;
+            padding:2rem;
+            border-bottom: 2px outset white;
+            
+        }
+        .description{
+            padding-top:5rem;
+        }
+    }
+}
