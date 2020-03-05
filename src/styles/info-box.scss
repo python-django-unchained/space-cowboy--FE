@@ -1,0 +1,21 @@
+.info-box{
+    display: flex;
+    justify-content: space-between;
+    padding-top: 6rem;
+    padding-right: 10rem;
+    
+    
+    .info{
+        padding: 2rem;
+        text-align:center;
+        border: 5px inset white;
+        background-image: url(../images/Brushed-Metal-Background.jpg);
+        width: 30%;
+        color:white;
+
+        .info-text{
+            padding:2rem;
+            border-bottom: 2px outset white;
+        }
+    }
+}
