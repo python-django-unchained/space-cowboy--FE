@@ -22,8 +22,8 @@ export default function Signup() {
         e.preventDefault()
         axios(authOptions)
         .then(res => {
-            console.log(res)
             localStorage.setItem('token', res.data.key)
+            props.history.push('/')
         })
         .catch(err => console.error(err))
     }
