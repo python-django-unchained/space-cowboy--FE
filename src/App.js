@@ -22,7 +22,21 @@ import './styles/App.scss';
 
 
 
+
+
 function App() {
+
+  const currentRoom = (arr) => {
+    let room;
+    for (let i = 0; i<arr.length; i++){
+        if (arr[i].tile_num !== 0) {
+             room = arr[i]
+            break
+        }
+    }
+    return room
+  }
+
   return (
     <div className="App">
       <header className="App-header">
@@ -31,13 +45,13 @@ function App() {
         <Route exact path='/signup' component={ Signup } />
         <Route exact path='/game' component={GameState} />
         <PrivateRoute exact path='/map' component={Map} />
-        <Route path='/ice-giant-room' component={IceGiantRoom} />
-        <Route path='/red-giant-room' component={RedGiantRoom} />
-        <Route path='/gas-giant-room' component={GasGiantRoom} />
-        <Route path='/earth-room' component={EarthRoom} />
-        <Route path='/earth2-room' component={Earth2Room} />
-        <Route path='/brown-exo-room' component={BrownExoRoom} />
-        <Route path='/sun-room' component={SunRoom} />
+        <Route path='/ice-giant-room' render={(props) => < IceGiantRoom {...props} currentRoom={currentRoom}  />} />
+        <Route path='/red-giant-room' render={(props) => < RedGiantRoom {...props} currentRoom={currentRoom} />} />
+        <Route path='/gas-giant-room' render={(props) => < GasGiantRoom {...props} currentRoom={currentRoom} />} />
+        <Route path='/earth-room' render={(props) => < EarthRoom {...props} currentRoom={currentRoom} />}  />
+  <Route path='/earth2-room' render={(props) => < Earth2Room {...props} currentRoom={currentRoom}  />}/>
+        <Route path='/brown-exo-room' render={(props) => < BrownExoRoom {...props} currentRoom={currentRoom} />} />
+  <Route path='/sun-room' render={(props) => < SunRoom {...props} currentRoom={currentRoom}/> }/>
       </header>
     </div>
   );

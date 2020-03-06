@@ -31,26 +31,23 @@ export default function GasGiantRoom(props) {
     useEffect(() => {
         axiosWithAuth()
             .get(`/api/adv/rooms?planet=Titan`)
-            .then(res => {                
+            .then(res => {  
+                let newRoom = props.currentRoom(res.data)              
                 setPlanet(res.data)
-                setCurrentRoom(res.data[76])         
-            })
-            .catch(err => console.log(err.response))
-    }, [])
-    
+                setCurrentRoom(newRoom)
+                axiosWithAuth().post('/api/adv/changeplanet', {planet: 'Titan', roomId: newRoom.id}).then(res => console.log(res)).catch(err => console.log(err.response))
 
-    useEffect(() => {
-        axiosWithAuth().get('/api/adv/rooms?planet=Mordor')
-        .then(res => {
                 let newTiles = res.data                
                 setMap({
                     ...map,
                     tiles: newTiles
                 })
-                setLoading(false)
+                setLoading(false)         
             })
-        .catch(err => console.log(err))
-        }, [])
+            .catch(err => console.log(err.response))
+    }, [])
+    
+
 
         
     return (
