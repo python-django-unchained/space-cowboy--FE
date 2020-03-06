@@ -1,4 +1,5 @@
-import React from 'react'
+import React, { useEffect } from 'react'
+import axiosWithAuth from '../utils/axiosWithAuth'
 
 
 // Planet pictures
@@ -11,7 +12,29 @@ import sun from '../images/sun.png'
 import gasGiant from '../images/gas-giant.png'
 
 
+
 export default function Map(props) {
+    
+
+    // Attempt to save user position and push to last visited planet
+    
+    // useEffect(() => {
+    //     axiosWithAuth()
+    //         .get('/api/adv/init')
+    //         .then(res => {
+    //             handleInit(res.data.location)
+    //         })
+    //         .catch(err => console.log(err.response))
+    // })
+
+    // const handleInit = (str) => {
+    //     if (str !== 'Space') {
+    //         props.history.push(`/${str}`)
+    //     } else {
+    //         props.history.push('/map')
+    //     }
+    // }
+
 
     
     return (
@@ -28,9 +51,3 @@ export default function Map(props) {
     )
 }
 
-// id of room
-// planet: name 
-// function that finds first non wall square
-// send id of room and planet name in axios call
-// space doesnt need room id, need planet name: Space
-// api/adv/changeplanet

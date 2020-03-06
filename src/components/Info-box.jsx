@@ -1,11 +1,23 @@
 import React from 'react'
+import axiosWithAuth from '../utils/axiosWithAuth'
 
 export default function InfoBox(props) {
+    
+   const {planet, currentRoom, planetName} = props
+
+   const changePlanet = () => {
+       axiosWithAuth()
+            .post('/api/adv/changeplanet', {planet: 'Space', roomId: 1})
+            .then(res => console.log(res))
+            .catch(err => console.log(err.response))
+   }
+ 
+
     return (
 
         <div className='info-box'>
             <div className='buttons'>                
-                <button className='return-button' onClick={() => props.props.history.push('/map')}>
+                <button className='return-button' onClick={() => {props.props.history.push('/map'); changePlanet()}}>
                     Return to Map
                 </button>
             </div>

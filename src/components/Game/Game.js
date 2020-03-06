@@ -177,16 +177,13 @@ export default function Game(props) {
 
     const handleKeyPress =(event) => {
         let current_room = _.find(props.map.tiles, (item) => item.x === parseInt(cowboyRef.current.style.left) && item.y == parseInt(cowboyRef.current.style.top))
-            console.log('keydown')
             switch (event.keyCode) {
                     case 37:
                     case 65:
                         if(parseInt(cowboyRef.current.style.left) <= bounds && parseInt(cowboyRef.current.style.left) >= 64) {
                             if (current_room.w_to !== 0) {
                                 cowboyRef.current.style.left = parseInt(cowboyRef.current.style.left) - 32 + 'px'
-                                console.log('cowboy', cowboyRef.current.style.left)
-                                // console.log(_.find(props.map.tiles, (item) => item.x === parseInt(cowboyRef.current.style.left) && item.y == parseInt(cowboyRef.current.style.top)))
-                                // console.log(`X: ${parseInt(cowboyRef.current.style.left)}, Y: ${parseInt(cowboyRef.current.style.top)}`)
+                                axiosWithAuth().post('/api/adv/move', {direction: 'w'}).then().catch(err => console.log(err.response))
                                 
                                 break;
                             } else { break }
@@ -196,8 +193,7 @@ export default function Game(props) {
                         if(parseInt(cowboyRef.current.style.top) <= bounds && parseInt(cowboyRef.current.style.top) >= 64) {
                             if (current_room.n_to !== 0) {
                                 cowboyRef.current.style.top = parseInt(cowboyRef.current.style.top) - 32 + 'px'
-                                // console.log(_.find(props.map.tiles, (item) => item.x === parseInt(cowboyRef.current.style.left) && item.y == parseInt(cowboyRef.current.style.top)))
-                                // console.log(`X: ${parseInt(cowboyRef.current.style.left)}, Y: ${parseInt(cowboyRef.current.style.top)}`)
+                                axiosWithAuth().post('/api/adv/move', {direction: 'n'}).then().catch(err => console.log(err.response))
                                 
                                 break;
                             } else { break }
@@ -207,8 +203,7 @@ export default function Game(props) {
                         if(parseInt(cowboyRef.current.style.left) <= bounds - 64 && parseInt(cowboyRef.current.style.left) >= 32) {
                             if(current_room.e_to !== 0) {
                                 cowboyRef.current.style.left = parseInt(cowboyRef.current.style.left) + 32 + 'px'
-                                // console.log(_.find(props.map.tiles, (item) => item.x === parseInt(cowboyRef.current.style.left) && item.y == parseInt(cowboyRef.current.style.top)))
-                                // console.log(`X: ${parseInt(cowboyRef.current.style.left)}, Y: ${parseInt(cowboyRef.current.style.top)}`)
+                                axiosWithAuth().post('/api/adv/move', {direction: 'e'}).then().catch(err => console.log(err.response))
                                 
                                 break;
                             } else { break }
@@ -218,10 +213,8 @@ export default function Game(props) {
                         if(parseInt(cowboyRef.current.style.top) <= bounds - 64 && parseInt(cowboyRef.current.style.top) >= 32) {
                             if(current_room.s_to !== 0) {
                                 cowboyRef.current.style.top = parseInt(cowboyRef.current.style.top) + 32 + 'px'
-                                // console.log(_.find(props.map.tiles, (item) => item.x === parseInt(cowboyRef.current.style.left) && item.y == parseInt(cowboyRef.current.style.top)))
-                                // console.log(`X: ${parseInt(cowboyRef.current.style.left)}, Y: ${parseInt(cowboyRef.current.style.top)}`)
-                                axiosWithAuth().post('/api/adv/move', {direction: 's'}).then(res=> console.log(res)).catch(err => console.log(err.response))
-                                // axiosWithAuth().post('/api/adv/changeplanet', {planet: 'Titan', roomId: Number(current_room.id)}).then(res=> console.log(res)).catch(err => console.log(err.response))
+                                axiosWithAuth().post('/api/adv/move', {direction: 's'}).then().catch(err => console.log(err.response))
+                                
                                 break;
                             } else { break }
                         } else { break }
@@ -232,7 +225,7 @@ export default function Game(props) {
 
     return (
         <div style={{ position: 'relative', width: 1000, height: '75vh' }}>
-            <img alt='character' ref={cowboyRef} src={require('../../images/sprite_00.png')} style={{ position: 'absolute', width: '32px', height: '32px', top: '96px', left: '128px' }}/>
+            <img alt='character' ref={cowboyRef} src={require('../../images/sprite_00.png')} style={{ position: 'absolute', width: '32px', height: '32px', top: currentRoom.y, left: currentRoom.x }}/>
             <canvas ref={canvasRef} />
             <img src={tilemap} ref={tilemapRef} style={{ display: 'none' }}/>
         </div>

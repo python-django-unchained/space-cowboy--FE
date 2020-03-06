@@ -31,36 +31,29 @@ export default function GasGiantRoom(props) {
     useEffect(() => {
         axiosWithAuth()
             .get(`/api/adv/rooms?planet=Titan`)
-            .then(res => {
+            .then(res => {  
+                let newRoom = props.currentRoom(res.data)              
+                setPlanet(res.data)
+                setCurrentRoom(newRoom)
+                axiosWithAuth().post('/api/adv/changeplanet', {planet: 'Titan', roomId: newRoom.id}).then(res => console.log(res)).catch(err => console.log(err.response))
+
+                let newTiles = res.data                
                 setMap({
                     ...map,
-                    tiles: res.data
+                    tiles: newTiles
                 })
-                setCurrentRoom(res.data[76])   
-                setLoading(false)      
+                setLoading(false)         
             })
             .catch(err => console.log(err.response))
     }, [])
     
 
-    // useEffect(() => {
-    //     axiosWithAuth().get('/api/adv/rooms?planet=Mordor')
-    //     .then(res => {
-    //             let newTiles = res.data                
-    //             setMap({
-    //                 ...map,
-    //                 tiles: newTiles
-    //             })
-    //             setLoading(false)
-    //         })
-    //     .catch(err => console.log(err))
-    //     }, [])
 
         
     return (
         <div className='room-background gas-giant'>
             <div className='game-container'>
-                {loading === true ? (<h1>Loading...</h1>) : (<Game planetName={props.history.location.pathname} map={map} currentRoom={currentRoom} setCurrentRoom={setCurrentRoom} />)}
+                {loading === true ? (<h1>Loading...</h1>) : (<Game planet={planet} planetName={props.history.location.pathname} map={map} currentRoom={currentRoom} setCurrentRoom={setCurrentRoom} />)}
             </div>
             <div className='info-container'>
                 <InfoBox planetName={props.history.location.pathname} planet={planet} currentRoom={currentRoom} props ={props}/>
