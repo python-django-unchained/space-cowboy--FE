@@ -3,6 +3,7 @@ import { withStyles } from '@material-ui/core';
 import Button from "@material-ui/core/Button";
 import { Form } from 'react-bootstrap';
 import axiosWithAuth from '../utils/axiosWithAuth';
+import axios from 'axios'
 
 
 const ColorButton = withStyles(theme => ({
@@ -19,8 +20,8 @@ export default function LandingPage(props) {
 
     const handleLogin = e => {
         e.preventDefault()
-        axiosWithAuth()
-            .post('/api/login/', {username, password})
+        axios
+            .post('https://space-cowboyz.herokuapp.com/api/login/', {username, password})
             .then(res => {
             localStorage.setItem('token', res.data.key)
             console.log(res)

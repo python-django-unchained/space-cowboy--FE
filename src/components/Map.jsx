@@ -15,22 +15,25 @@ import gasGiant from '../images/gas-giant.png'
 
 export default function Map(props) {
     
-    useEffect(() => {
-        axiosWithAuth()
-            .get('/api/adv/init')
-            .then(res => {
-                handleInit(res.data.planet)
-            })
-            .catch(err => console.log(err.response))
-    })
 
-    const handleInit = (str) => {
-        if (str !== 'Space') {
-            props.history.push(`/${str}`)
-        } else {
-            props.history.push('/map')
-        }
-    }
+    // Attempt to save user position and push to last visited planet
+    
+    // useEffect(() => {
+    //     axiosWithAuth()
+    //         .get('/api/adv/init')
+    //         .then(res => {
+    //             handleInit(res.data.location)
+    //         })
+    //         .catch(err => console.log(err.response))
+    // })
+
+    // const handleInit = (str) => {
+    //     if (str !== 'Space') {
+    //         props.history.push(`/${str}`)
+    //     } else {
+    //         props.history.push('/map')
+    //     }
+    // }
 
 
     
