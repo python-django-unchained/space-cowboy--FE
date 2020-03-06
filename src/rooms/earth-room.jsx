@@ -23,12 +23,17 @@ export default function EarthRoom(props) {
     useEffect(() => {
         axiosWithAuth()
             .get(`/api/adv/rooms?planet=Terra`)
-            .then(res => {
+            .then(res => {  
+                let newRoom = props.currentRoom(res.data)              
+                setPlanet(res.data)
+                setCurrentRoom(newRoom)
+                axiosWithAuth().post('/api/adv/changeplanet', {planet: 'Terra', roomId: newRoom.id}).then(res => console.log(res)).catch(err => console.log(err.response))
+
+                let newTiles = res.data                
                 setMap({
                     ...map,
-                    tiles: res.data
-                })
-                setCurrentRoom(res.data[76])   
+                    tiles: newTiles
+                })   
                 setLoading(false)
             })
             .catch(err => console.log(err.response))
@@ -37,10 +42,10 @@ export default function EarthRoom(props) {
     return (
         <div className='room-background gas-giant'>
             <div className='game-container'>
-                {loading === true ? (<h1>Loading...</h1>) : (<Game planetName={props.history.location.pathname} map={map} currentRoom={currentRoom} setCurrentRoom={setCurrentRoom} />)}
+                {loading === true ? (<h1>Loading Map...</h1>) : (<Game planetName={props.history.location.pathname} map={map} currentRoom={currentRoom} setCurrentRoom={setCurrentRoom} />)}
             </div>
             <div className='info-container'>
-                <InfoBox planetName={props.history.location.pathname} planet={planet} currentRoom={currentRoom} props ={props}/>
+                {loading === true ? (<h1>Loading Map Data...</h1>) : (<InfoBox planetName={props.history.location.pathname} planet={planet} currentRoom={currentRoom} props ={props}/>)}
             </div>
         </div>
     )
