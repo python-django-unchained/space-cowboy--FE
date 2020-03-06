@@ -1,12 +1,11 @@
 import React, { useRef, useEffect } from 'react'
 import axiosWithAuth from '../../utils/axiosWithAuth';
-
 var _ = require('underscore');
 
 const tilemap = require('./floortileset.png')
 
 const tileObj = {
-    hot: {
+    Ragnarok: { // hot
         floor1X: 128,
         floor1Y: 128,
         floor2X: 32,
@@ -16,7 +15,7 @@ const tileObj = {
         wallX: 64,
         wallY: 128
     },
-    cold: {
+    Mordor: { // cold
         floor1X: 128,
         floor1Y: 160,
         floor2X: 160,
@@ -26,7 +25,7 @@ const tileObj = {
         wallX: 196,
         wallY: 160
     },
-    normal: {
+    Terra: { //Earth 1
         floor1X: 64,
         floor1Y: 224,
         floor2X: 96,
@@ -36,7 +35,27 @@ const tileObj = {
         wallX: 0,
         wallY: 160,
     },
-    yellow: {
+    Azeroth: { //Earth 2
+        floor1X: 64,
+        floor1Y: 224,
+        floor2X: 96,
+        floor2Y: 224,
+        floor3X: 128,
+        floor3Y: 224,
+        wallX: 0,
+        wallY: 160,
+    },
+    Titan: {
+        floor1X: 64,
+        floor1Y: 224,
+        floor2X: 96,
+        floor2Y: 224,
+        floor3X: 128,
+        floor3Y: 224,
+        wallX: 0,
+        wallY: 160,
+    },
+    Sol: {
         floor1X: 32,
         floor1Y: 96,
         floor2X: 64,
@@ -46,7 +65,7 @@ const tileObj = {
         wallX: 0,
         wallY: 96,
     },
-    brown: {
+    Europa: {
         floor1X: 0,
         floor1Y: 192,
         floor2X: 32,
@@ -59,19 +78,20 @@ const tileObj = {
 }
 
 export default function Game(props) {
+    console.log(props.planetName.substr(1, props.planetName.length))
     const canvasRef = useRef(null)
     const tilemapRef = useRef(null)
     const cowboyRef = useRef(null)
     const img = new Image()
     img.src = './floortileset.png'
-    const {setCurrentRoom, currentRoom} = props
+    const {setCurrentRoom, currentRoom, planetName} = props
     
     useEffect(() => {
         const ctx = canvasRef.current.getContext('2d')
         canvasRef.current.width = 900
         canvasRef.current.height = 900
         tilemapRef.current.onload = () => {
-            drawImage(ctx, img)
+            drawImage(ctx, img, planetName.substr(1, planetName.length))
         }
     }, [])
     
@@ -83,8 +103,8 @@ export default function Game(props) {
                 if (tile == 0) {
                     ctx.drawImage(
                     img, // image
-                    tileObj.hot.wallX,
-                    tileObj.hot.wallY,
+                    tileObj[planet].wallX,
+                    tileObj[planet].wallY,
                     props.map.tsize, // source width
                     props.map.tsize, // source height
                     c * props.map.tsize, // target x
@@ -97,8 +117,8 @@ export default function Game(props) {
                 else if (tile == 1) {
                     ctx.drawImage(
                     img, // image
-                    tileObj.hot.floor1X, // source x
-                    tileObj.hot.floor1Y, // source y
+                    tileObj[planet].floor1X, // source x
+                    tileObj[planet].floor1Y, // source y
                     props.map.tsize, // source width
                     props.map.tsize, // source height
                     c * props.map.tsize, // target x
@@ -111,8 +131,8 @@ export default function Game(props) {
                 else if (tile == 2) {
                     ctx.drawImage(
                         img, // image
-                        tileObj.hot.floor2X, // source x
-                        tileObj.hot.floor2Y, // source y
+                        tileObj[planet].floor2X, // source x
+                        tileObj[planet].floor2Y, // source y
                         props.map.tsize, // source width
                         props.map.tsize, // source height
                         c * props.map.tsize, // target x
@@ -125,8 +145,8 @@ export default function Game(props) {
                 else if (tile == 3) {
                     ctx.drawImage(
                         img, // image
-                        tileObj.hot.floor3X, // source x
-                        tileObj.hot.floor3Y, // source y
+                        tileObj[planet].floor3X, // source x
+                        tileObj[planet].floor3Y, // source y
                         props.map.tsize, // source width
                         props.map.tsize, // source height
                         c * props.map.tsize, // target x

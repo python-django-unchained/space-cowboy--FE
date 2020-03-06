@@ -45,13 +45,13 @@ function App() {
         <Route exact path='/signup' component={ Signup } />
         <Route exact path='/game' component={GameState} />
         <PrivateRoute exact path='/map' component={Map} />
-        <Route path='/ice-giant-room' render={(props) => < IceGiantRoom {...props} currentRoom={currentRoom}  />} />
-        <Route path='/red-giant-room' render={(props) => < RedGiantRoom {...props} currentRoom={currentRoom} />} />
-        <Route path='/gas-giant-room' render={(props) => < GasGiantRoom {...props} currentRoom={currentRoom} />} />
-        <Route path='/earth-room' render={(props) => < EarthRoom {...props} currentRoom={currentRoom} />}  />
-  <Route path='/earth2-room' render={(props) => < Earth2Room {...props} currentRoom={currentRoom}  />}/>
-        <Route path='/brown-exo-room' render={(props) => < BrownExoRoom {...props} currentRoom={currentRoom} />} />
-  <Route path='/sun-room' render={(props) => < SunRoom {...props} currentRoom={currentRoom}/> }/>
+        <Route path='/Mordor' render={(props) => < IceGiantRoom {...props} currentRoom={currentRoom}  />} />
+        <Route path='/Ragnarok' render={(props) => < RedGiantRoom {...props} currentRoom={currentRoom} />} />
+        <Route path='/Titan' render={(props) => < GasGiantRoom {...props} currentRoom={currentRoom} />} />
+        <Route path='/Terra' render={(props) => < EarthRoom {...props} currentRoom={currentRoom} />}  />
+  <Route path='/Azeroth' render={(props) => < Earth2Room {...props} currentRoom={currentRoom}  />}/>
+        <Route path='/Europa' render={(props) => < BrownExoRoom {...props} currentRoom={currentRoom} />} />
+  <Route path='/Sol' render={(props) => < SunRoom {...props} currentRoom={currentRoom}/> }/>
       </header>
     </div>
   );
