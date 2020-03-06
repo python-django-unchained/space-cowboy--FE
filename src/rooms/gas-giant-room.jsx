@@ -5,7 +5,7 @@ import InfoBox from '../components/Info-box'
 import Game from '../components/Game/Game'
 
 export default function GasGiantRoom(props) {
-    const planetName = 'Titan'
+    const planetName = props.history.location.pathname
     const [player, setPlayer] = useState({
         uuid: '',
         name: '',
@@ -31,35 +31,39 @@ export default function GasGiantRoom(props) {
     useEffect(() => {
         axiosWithAuth()
             .get(`/api/adv/rooms?planet=Titan`)
-            .then(res => {                
-                setPlanet(res.data)
-                setCurrentRoom(res.data[76])         
+            .then(res => {
+                setMap({
+                    ...map,
+                    tiles: res.data
+                })
+                setCurrentRoom(res.data[76])   
+                setLoading(false)      
             })
             .catch(err => console.log(err.response))
     }, [])
     
 
-    useEffect(() => {
-        axiosWithAuth().get('/api/adv/rooms?planet=Mordor')
-        .then(res => {
-                let newTiles = res.data                
-                setMap({
-                    ...map,
-                    tiles: newTiles
-                })
-                setLoading(false)
-            })
-        .catch(err => console.log(err))
-        }, [])
+    // useEffect(() => {
+    //     axiosWithAuth().get('/api/adv/rooms?planet=Mordor')
+    //     .then(res => {
+    //             let newTiles = res.data                
+    //             setMap({
+    //                 ...map,
+    //                 tiles: newTiles
+    //             })
+    //             setLoading(false)
+    //         })
+    //     .catch(err => console.log(err))
+    //     }, [])
 
         
     return (
         <div className='room-background gas-giant'>
             <div className='game-container'>
-                {loading === true ? (<h1>Loading...</h1>) : (<Game map={map} currentRoom={currentRoom} setCurrentRoom={setCurrentRoom} />)}
+                {loading === true ? (<h1>Loading...</h1>) : (<Game planetName={props.history.location.pathname} map={map} currentRoom={currentRoom} setCurrentRoom={setCurrentRoom} />)}
             </div>
             <div className='info-container'>
-                <InfoBox planet={planet} currentRoom={currentRoom} planetName = {planetName} props ={props}/>
+                <InfoBox planetName={props.history.location.pathname} planet={planet} currentRoom={currentRoom} props ={props}/>
             </div>
             
         </div>

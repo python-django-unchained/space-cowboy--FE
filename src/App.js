@@ -31,13 +31,13 @@ function App() {
         <Route exact path='/signup' component={ Signup } />
         <Route exact path='/game' component={GameState} />
         <PrivateRoute exact path='/map' component={Map} />
-        <Route path='/ice-giant-room' component={IceGiantRoom} />
-        <Route path='/red-giant-room' component={RedGiantRoom} />
-        <Route path='/gas-giant-room' component={GasGiantRoom} />
-        <Route path='/earth-room' component={EarthRoom} />
-        <Route path='/earth2-room' component={Earth2Room} />
-        <Route path='/brown-exo-room' component={BrownExoRoom} />
-        <Route path='/sun-room' component={SunRoom} />
+        <Route path='/Mordor' component={IceGiantRoom} />
+        <Route path='/Ragnarok' component={RedGiantRoom} />
+        <Route path='/Titan' component={GasGiantRoom} />
+        <Route path='/Terra' component={EarthRoom} />
+        <Route path='/Azeroth' component={Earth2Room} />
+        <Route path='/Europa' component={BrownExoRoom} />
+        <Route path='/Sol' component={SunRoom} />
       </header>
     </div>
   );

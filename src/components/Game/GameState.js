@@ -8,8 +8,8 @@ import axiosWithAuth from '../../utils/axiosWithAuth'
 export default function GameState() {
     const [loading, setLoading] = useState(true)
     const [map, setMap] = useState({
-        cols: 12,
-        rows: 12,
+        cols: 27,
+        rows: 27,
         tsize: 32,
         tiles: [],
         getTile: function(col, row) {
@@ -21,13 +21,11 @@ export default function GameState() {
     img.src = './floortileset.png'
     
     useEffect(() => {
-        axiosWithAuth().get('/api/adv/rooms?planet=Mordor')
+        axiosWithAuth().get('/api/adv/rooms?planet=Titan')
         .then(res => {
             // const newData = res.data.map(item => item)
             setMap({
                 ...map,
-                cols: Math.sqrt(res.data.length),
-                rows: Math.sqrt(res.data.length),
                 tiles: res.data
             })
             setLoading(false)
