@@ -1,19 +1,6 @@
-import React, { useEffect, useState } from 'react'
-import axiosWithAuth from '../utils/axiosWithAuth'
+import React from 'react'
 
 export default function InfoBox(props) {
-    
-   const {planet, currentRoom, planetName} = props
-
-
-
-
-    console.log(planet)
-    console.log(currentRoom)
-    console.log(props)
-            
- 
-
     return (
 
         <div className='info-box'>
@@ -24,9 +11,9 @@ export default function InfoBox(props) {
             </div>
 
             <div className='info'>
-                <h3 className='info-text'>{planetName}</h3>
-                <h4 className='info-text'>{currentRoom.title}</h4>
-                <h4 className='info-text description'>{currentRoom.description}</h4>
+                <h3 className='info-text'>{props.planetName.substr(1, props.planetName.length)}</h3>
+                <h4 className='info-text'>{props.currentRoom.title}</h4>
+                <h4 className='info-text description'>{props.currentRoom.description}</h4>
             </div>
 
         </div>
