@@ -5,7 +5,7 @@ import Game from '../components/Game/Game'
 
 export default function SunRoom(props) {
     const [currentRoom, setCurrentRoom] = useState({title: '', description: '', planet: ''})
-
+    const [planet, setPlanet] = useState()
     const [map, setMap] = useState({
         cols: 27,
         rows: 27,
@@ -26,7 +26,7 @@ export default function SunRoom(props) {
                     ...map,
                     tiles: res.data
                 })
-                setCurrentRoom(res.data[76])   
+                setCurrentRoom(res.data[57])   
                 setLoading(false)
             })
             .catch(err => console.log(err.response))
@@ -35,10 +35,10 @@ export default function SunRoom(props) {
     return (
         <div className='room-background gas-giant'>
             <div className='game-container'>
-                {loading === true ? (<h1>Loading...</h1>) : (<Game planetName={props.history.location.pathname} map={map} currentRoom={currentRoom} setCurrentRoom={setCurrentRoom} />)}
+                {loading === true ? (<h1>Loading Map...</h1>) : (<Game planetName={props.history.location.pathname} map={map} currentRoom={currentRoom} setCurrentRoom={setCurrentRoom} />)}
             </div>
             <div className='info-container'>
-                <InfoBox planetName={props.history.location.pathname} currentRoom={currentRoom} props ={props}/>
+                {loading === true ? (<h1>Loading Map Data...</h1>) : (<InfoBox planetName={props.history.location.pathname} planet={planet} currentRoom={currentRoom} props ={props}/>)}
             </div>
         </div>
     )

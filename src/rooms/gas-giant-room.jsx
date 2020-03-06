@@ -6,13 +6,6 @@ import Game from '../components/Game/Game'
 
 export default function GasGiantRoom(props) {
     const planetName = props.history.location.pathname
-    const [player, setPlayer] = useState({
-        uuid: '',
-        name: '',
-        title: '',
-        description: '',
-        players: []
-    })
     const [planet, setPlanet] = useState()
     const [currentRoom, setCurrentRoom] = useState({title: '', description: '', planet: ''})
 
@@ -53,12 +46,11 @@ export default function GasGiantRoom(props) {
     return (
         <div className='room-background gas-giant'>
             <div className='game-container'>
-                {loading === true ? (<h1>Loading...</h1>) : (<Game planet={planet} planetName={props.history.location.pathname} map={map} currentRoom={currentRoom} setCurrentRoom={setCurrentRoom} />)}
+                {loading === true ? (<h1>Loading Map...</h1>) : (<Game planetName={props.history.location.pathname} map={map} currentRoom={currentRoom} setCurrentRoom={setCurrentRoom} />)}
             </div>
             <div className='info-container'>
-                <InfoBox planetName={props.history.location.pathname} planet={planet} currentRoom={currentRoom} props ={props}/>
+                {loading === true ? (<h1>Loading Map Data...</h1>) : (<InfoBox planetName={props.history.location.pathname} planet={planet} currentRoom={currentRoom} props ={props}/>)}
             </div>
-            
         </div>
     )
 }
