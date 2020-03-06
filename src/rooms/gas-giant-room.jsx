@@ -4,8 +4,8 @@ import axios from 'axios'
 import InfoBox from '../components/Info-box'
 import Game from '../components/Game/Game'
 
-export default function GasGiantRoom() {
-
+export default function GasGiantRoom(props) {
+    const planetName = 'Titan'
     const [player, setPlayer] = useState({
         uuid: '',
         name: '',
@@ -30,7 +30,7 @@ export default function GasGiantRoom() {
 
     useEffect(() => {
         axiosWithAuth()
-            .get(`/api/adv/rooms?planet=Mordor`)
+            .get(`/api/adv/rooms?planet=Titan`)
             .then(res => {                
                 setPlanet(res.data)
                 setCurrentRoom(res.data[76])         
@@ -56,10 +56,10 @@ export default function GasGiantRoom() {
     return (
         <div className='room-background gas-giant'>
             <div className='game-container'>
-                {loading === true ? (<h1>Loading...</h1>) : (<Game map={map} />)}
+                {loading === true ? (<h1>Loading...</h1>) : (<Game map={map} currentRoom={currentRoom} setCurrentRoom={setCurrentRoom} />)}
             </div>
             <div className='info-container'>
-                <InfoBox planet={planet} currentRoom={currentRoom}/>
+                <InfoBox planet={planet} currentRoom={currentRoom} planetName = {planetName} props ={props}/>
             </div>
             
         </div>

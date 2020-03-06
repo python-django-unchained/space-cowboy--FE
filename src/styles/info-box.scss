@@ -1,11 +1,19 @@
 .info-box{
-    display: flex;
+    // display: flex;
+    // align-items: flex-start;
     justify-content: space-between;
-    padding-top: 6rem;
+    // padding-top: 6rem;
     padding-right: 15rem;
     height:100%;
     
-    
+    .buttons{
+        .return-button{
+            background-image: url(../images/Brushed-Metal-Background.jpg);
+            color:white;
+            font-family: 'Press Start 2P', sans-serif;
+            padding: 1rem;
+        }
+    }
     .info{
         
         padding: 2rem;

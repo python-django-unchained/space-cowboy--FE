@@ -27,3 +27,10 @@ export default function Map(props) {
         </div>
     )
 }
+
+// id of room
+// planet: name 
+// function that finds first non wall square
+// send id of room and planet name in axios call
+// space doesnt need room id, need planet name: Space
+// api/adv/changeplanet
