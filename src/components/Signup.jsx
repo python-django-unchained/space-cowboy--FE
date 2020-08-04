@@ -23,7 +23,7 @@ export default function Signup() {
         axios(authOptions)
         .then(res => {
             localStorage.setItem('token', res.data.key)
-            props.history.push('/')
+            props.history.push('/map')
         })
         .catch(err => console.error(err))
     }
